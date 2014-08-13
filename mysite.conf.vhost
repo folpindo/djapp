@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName djapp.local
+    ServerAlias mydjapp.local
+    ServerAdmin folpindo@localhost
+    WSGIDaemonProcess myapp python-path=/var/www/html/mysite:/usr/lib/python2.7/site-packages/
+    WSGIProcessGroup myapp
+    WSGIScriptAlias / /var/www/html/mysite/mysite/wsgi.py
+
+   <Directory /var/www/html/mysite>
+        <Files wsgi.py>
+                Require all granted
+        </Files>
+   </Directory>
+</VirtualHost>
+
